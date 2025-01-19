@@ -123,7 +123,7 @@ export const checklistItems = [
 export const pricingOptions = [
   {
     title: "Basic",
-    price: "Ksh.3,500",
+    price: "30 USD",
     features: [
       "Hosting Support",
       "Basic SEO Optimization",
@@ -134,7 +134,7 @@ export const pricingOptions = [
   },
   {
     title: "Pro",
-    price: "Ksh.10,000",
+    price: "100 USD",
     features: [
       "All Basic Plan Features",
       "E-commerce Integration",
@@ -145,7 +145,7 @@ export const pricingOptions = [
   },
   {
     title: "Enterprise",
-    price: "Ksh.20,000",
+    price: "160 USD",
     features: [
       "All Pro Plan Features",
       "AI Integration",
