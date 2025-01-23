@@ -11,6 +11,7 @@ import user3 from "../assets/profile-pictures/user2.png";
 import user4 from "../assets/profile-pictures/user2.png";
 import user5 from "../assets/profile-pictures/user2.png";
 import user6 from "../assets/profile-pictures/user2.png";
+import user7 from "../assets/profile-pictures/user2.png
 
 export const navItems = [
   { label: "Services", href: "#" },
