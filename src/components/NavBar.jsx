@@ -2,6 +2,7 @@ import {Menu, X} from "lucide-react";
 import {useState} from "react";
 import logo from "../assets/slyTexSoftwareSolutions3.png";
 import {navItems} from "../constants";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
     const [MobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -19,17 +20,17 @@ const NavBar = () => {
                 <ul className="hidden lg:flex ml-14 space-x-12">
                     {navItems.map((item, index) => 
                         <li key={index}>
-                            <a href={item.href}>{item.label}</a>
+                            <Link to={item.href}>{item.label}</Link>
                         </li>
                     )}
                 </ul>
                 <div className="hidden lg:flex justify-center space-x-12 items-center">
-                    <a href="#" className="py-2 px-3 border rounded-md">
+                    <Link to="/signin" className="py-2 px-3 border rounded-md">
                         Sign In
-                    </a>
-                    <a href="#" className="bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md">
+                    </Link>
+                    <Link to="/register" className="bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md">
                         Sign Up
-                    </a>
+                    </Link>
                 </div>
                 <div className="lg:hidden md:flex flex-col justify-end">
                     <button onClick={toggleNavbar}>
@@ -42,7 +43,7 @@ const NavBar = () => {
                     <ul>
                         {navItems.map((item, index) => (
                             <li key={index} className="py-4">
-                                <a href={item.href}>{item.label}</a>
+                                <Link to={item.href}>{item.label}</Link>
                             </li>
                             ))
                         }
