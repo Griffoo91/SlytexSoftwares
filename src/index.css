@@ -91,6 +91,12 @@
     backdrop-filter: blur(8px); /* Blur effect */
     z-index: -1;
   }
+  /* Ensure React Root Container Fills Full Page */
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
   /* MediaQuery for small Screen*/
   @media (max-width: 768px) {
     body {
