@@ -91,4 +91,11 @@
     backdrop-filter: blur(8px); /* Blur effect */
     z-index: -1;
   }
+  /* MediaQuery for small Screen*/
+  @media (max-width: 768px) {
+    body {
+      background-size: contain; /* Ensures full visibility on smaller screens */
+      background-attachment: scroll; /* Prevents fixed background issues on mobile */
+    }
+  }
 }
