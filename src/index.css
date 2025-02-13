@@ -11,8 +11,8 @@
 
 @layer base {
   :root {
-    --background: linear-gradient(to right, #254f79, #00FF7F);
-    --foreground: 0 0% 3.9%;
+    --gradient-bg: linear-gradient(to right, #254f79, #00FF7F);
+    --foreground: white
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
@@ -38,7 +38,7 @@
     --radius: 0.5rem;
   }
   .dark {
-    --background: linear-gradient(to right, #000A1F, #00D47F);
+    --gradient-bg: linear-gradient(to right, #000A1F, #00D47F);
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -70,6 +70,25 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    background: url('/bg2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    width: 100vw;
+    min-height: 100vw;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    color: white
+    /*@apply bg-background text-foreground;*/
+  }
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Darken effect */
+    backdrop-filter: blur(8px); /* Blur effect */
+    z-index: -1;
   }
 }

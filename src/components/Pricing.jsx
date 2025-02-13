@@ -40,7 +40,7 @@ const Pricing = () => {
               </ul>
               {/* Change <a> to <button> and add onClick */}
               <button
-                onClick={() => navigate("/signIn") } //setBookingOpen(true)
+                onClick={() => navigate("/signin") } //setBookingOpen(true)
                 className="inline-flex justify-center items-center text-center w-full h-12 p-5 mt-20 tracking-tight text-xl hover:bg-blue-900 border border-blue-900 rounded-lg transition duration-200"
               >
                 Subscribe
