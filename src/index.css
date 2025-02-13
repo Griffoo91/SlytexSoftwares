@@ -11,7 +11,7 @@
 
 @layer base {
   :root {
-    --background: linear-gradient(to right, #001F3F, #00FF7F);
+    --background: linear-gradient(to right, #254f79, #00FF7F);
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
