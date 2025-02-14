@@ -9,8 +9,9 @@ const SignIn = () => {
       style={{ backgroundImage: `url(${SlytexBg})` }}
     >
       <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40"></div>
-      
-      <div className="relative bg-white bg-opacity-20 backdrop-blur-md p-8 rounded-lg shadow-lg w-96">
+
+      {/* Responsive Container */}
+      <div className="relative bg-white bg-opacity-20 backdrop-blur-md p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-sm sm:w-96">
         <h2 className="text-2xl font-semibold text-center text-white mb-4">Login</h2>
         <form>
           <div className="mb-4">

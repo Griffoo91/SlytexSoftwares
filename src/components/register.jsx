@@ -9,15 +9,16 @@ const SignUp = () => {
       style={{ backgroundImage: `url(${SlytexBg})` }}
     >
       <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40"></div>
-      
-      <div className="relative bg-white bg-opacity-20 backdrop-blur-md p-8 rounded-lg shadow-lg w-96">
+
+      {/* Responsive Container */}
+      <div className="relative bg-white bg-opacity-20 backdrop-blur-md p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-sm sm:w-96">
         <h2 className="text-2xl font-semibold text-center text-white mb-4">Register</h2>
         <form>
           <div className="mb-4">
             <label className="block text-white text-sm mb-1">Full Name</label>
             <div className="flex items-center bg-white bg-opacity-20 p-2 rounded-md">
               <input
-                type="name"
+                type="text"
                 placeholder="Full Name"
                 className="w-full bg-transparent text-white outline-none placeholder-gray-300"
               />
@@ -27,7 +28,7 @@ const SignUp = () => {
             <label className="block text-white text-sm mb-1">Email</label>
             <div className="flex items-center bg-white bg-opacity-20 p-2 rounded-md">
               <input
-                type="name"
+                type="email"
                 placeholder="Email"
                 className="w-full bg-transparent text-white outline-none placeholder-gray-300"
               />
@@ -37,7 +38,7 @@ const SignUp = () => {
             <label className="block text-white text-sm mb-1">Phone Number</label>
             <div className="flex items-center bg-white bg-opacity-20 p-2 rounded-md">
               <input
-                type="number"
+                type="tel"
                 placeholder="Phone Number"
                 className="w-full bg-transparent text-white outline-none placeholder-gray-300"
               />
@@ -58,7 +59,7 @@ const SignUp = () => {
             <div className="flex items-center bg-white bg-opacity-20 p-2 rounded-md">
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="Confirm Password"
                 className="w-full bg-transparent text-white outline-none placeholder-gray-300"
               />
             </div>
@@ -68,7 +69,7 @@ const SignUp = () => {
           </button>
         </form>
         <p className="text-center text-white text-sm mt-4">
-          Already have an Account? <Link to="/signin" className="underline">Login</Link>
+          Already have an account? <Link to="/signin" className="underline">Login</Link>
         </p>
       </div>
     </div>
