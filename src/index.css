@@ -73,24 +73,14 @@
     background: url('/bg2.jpg') no-repeat center center fixed;
     background-size: cover;
     width: 100vw;
-    min-height: 100vw;
+    min-height: 100vh;
     padding: 0;
     margin: 0;
     position: relative;
-    color: white
+    color: white;
     /*@apply bg-background text-foreground;*/
   }
-  body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Darken effect */
-    backdrop-filter: blur(8px); /* Blur effect */
-    z-index: -1;
-  }
+  
   /* Ensure React Root Container Fills Full Page */
   #root {
     min-height: 100vh;
@@ -102,6 +92,14 @@
     body {
       background-size: contain; /* Ensures full visibility on smaller screens */
       background-attachment: scroll; /* Prevents fixed background issues on mobile */
+    }
+  }
+
+  /* Large Screen*/
+  @media (min-width: 1024px){
+    body::before{
+      background: rgba(0, 0, 0, 0.6); /* more darken*/
+      backdrop-filter: blur(10px);
     }
   }
 }

@@ -1,45 +1,59 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SlytexBg from "../assets/slytexbg2.jpg";
+import SlytexBg from "../assets/bg2.jpg";
 
 const SignIn = () => {
   return (
     <div
-      className="relative flex items-center justify-center h-screen bg-cover bg-center"
+      className="relative bg-fixed flex items-center justify-center h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${SlytexBg})` }}
     >
-      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40"></div>
+      {/*Dark Overlay for Visibility */}
+      <div className="absolute inset-0 bg-opacity-50 backdrop-blur-lg"></div>
 
-      {/* Responsive Container */}
-      <div className="relative bg-white bg-opacity-20 backdrop-blur-md p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-sm sm:w-96">
-        <h2 className="text-2xl font-semibold text-center text-white mb-4">Login</h2>
+      {/* Glassmorphic Card */}
+      <div className="relative z-10 bg-white bg-opacity-10 backdrop-blur-xl border border-white/20 
+                      p-8 sm:p-10 rounded-2xl shadow-2xl w-full max-w-sm sm:w-96">
+        <h2 className="text-3xl font-bold text-center text-white mb-6">Sign In</h2>
+
         <form>
-          <div className="mb-4">
-            <label className="block text-white text-sm mb-1">Email</label>
-            <div className="flex items-center bg-white bg-opacity-20 p-2 rounded-md">
+          {/* Email Input */}
+          <div className="mb-5">
+            <label className="block text-white text-sm mb-2">Email</label>
+            <div className="flex items-center bg-white bg-opacity-20 p-3 rounded-lg border border-white/30">
               <input
                 type="email"
-                placeholder="Email"
+                placeholder="Enter your email"
                 className="w-full bg-transparent text-white outline-none placeholder-gray-300"
               />
             </div>
           </div>
-          <div className="mb-4">
-            <label className="block text-white text-sm mb-1">Password</label>
-            <div className="flex items-center bg-white bg-opacity-20 p-2 rounded-md">
+
+          {/* Password Input */}
+          <div className="mb-5">
+            <label className="block text-white text-sm mb-2">Password</label>
+            <div className="flex items-center bg-white bg-opacity-20 p-3 rounded-lg border border-white/30">
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="Enter your password"
                 className="w-full bg-transparent text-white outline-none placeholder-gray-300"
               />
             </div>
           </div>
-          <button className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 transition">
+
+          {/* Login Button */}
+          <button className="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-900 text-white 
+                             rounded-lg font-semibold text-lg shadow-lg hover:opacity-90 transition">
             Login
           </button>
         </form>
-        <p className="text-center text-white text-sm mt-4">
-          Don’t have an account? <Link to="/register" className="underline">Register</Link>
+
+        {/* Register Link */}
+        <p className="text-center text-neutral-200 text-sm mt-6">
+          Don’t have an account?{" "}
+          <Link to="/register" className="text-blue-400 font-semibold hover:underline">
+            Register
+          </Link>
         </p>
       </div>
     </div>
