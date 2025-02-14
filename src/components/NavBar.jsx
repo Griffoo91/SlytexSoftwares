@@ -9,10 +9,17 @@ const NavBar = () => {
   
   const toggleNavbar = () => {
     setMobileOpen(!mobileOpen);
+
+    // Prevent horizontal scrolling when the menu is open
+    if (!mobileOpen) {
+      document.body.style.overflowX = "hidden";
+    } else {
+      document.body.style.overflowX = "auto";
+    }
   };
 
   return (
-    <nav className="sticky top-0 z-50 py-3 bg-white/10 backdrop-blur-md border-b border-gray-700/50 shadow-lg">
+    <nav className="sticky top-0 z-50 py-3 bg-white/10 backdrop-blur-md border-b border-gray-700/50 shadow-lg w-full">
       <div className="container mx-auto px-6 flex justify-between items-center">
         
         {/* Logo */}
@@ -49,26 +56,27 @@ const NavBar = () => {
       </div>
 
       {/* Mobile Navigation Menu */}
-      <div className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-md flex flex-col items-center justify-center transform ${mobileOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 lg:hidden z-50`}>
+      <div className={`fixed inset-0 bg-black bg-opacity-80 backdrop-blur-md flex flex-col items-center justify-center ${mobileOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 lg:hidden z-50 w-full h-full overflow-hidden`}>
         <button className="absolute top-5 right-6 text-white" onClick={toggleNavbar}>
           <X size={32} />
         </button>
         
-        <ul className="space-y-6 text-center text-white text-lg">
+        <ul className="space-y-6 text-center text-white text-lg w-full">
           {navItems.map((item, index) => (
-            <li key={index}>
-              <Link to={item.href} onClick={toggleNavbar} className="hover:text-blue-400 transition">
+            <li key={index} className="w-full">
+              <Link to={item.href} onClick={toggleNavbar} className="block py-3 w-full hover:bg-white hover:text-black transition">
                 {item.label}
               </Link>
             </li>
           ))}
         </ul>
 
-        <div className="mt-6 flex space-x-4">
-          <Link to="/signin" className="py-2 px-4 border border-white rounded-lg text-white hover:bg-white hover:text-black transition">
+        {/* Sign In & Sign Up buttons in Mobile Menu */}
+        <div className="mt-6 flex flex-col space-y-4 w-full px-6">
+          <Link to="/signin" className="py-3 px-4 border border-white rounded-lg text-white text-center hover:bg-white hover:text-black transition">
             Sign In
           </Link>
-          <Link to="/register" className="py-2 px-4 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:opacity-90 transition">
+          <Link to="/register" className="py-3 px-4 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white text-center hover:opacity-90 transition">
             Sign Up
           </Link>
         </div>
