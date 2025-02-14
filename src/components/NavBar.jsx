@@ -1,65 +1,80 @@
-import {Menu, X} from "lucide-react";
-import {useState} from "react";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 import logo from "../assets/slyTexSoftwareSolutions3.png";
-import {navItems} from "../constants";
+import { navItems } from "../constants";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-    const [MobileDrawerOpen, setMobileDrawerOpen] = useState(false);
-    const toggleNavbar = () => {
-        setMobileDrawerOpen(!MobileDrawerOpen);
-    }
+  const [mobileOpen, setMobileOpen] = useState(false);
+  
+  const toggleNavbar = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
   return (
-    <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-neutral-700/80">
-        <div className="container px-4 mx-auto relative text-sm">
-            <div className="flex justify-between items-center">
-                <div className="flex items-center flex-shrink-0">
-                    <img className="h-10 w-10 mr-2" src={logo} alt="logo" />
-                    <span className="text-xl tracking-tight">Slytex Softwares</span>
-                </div>
-                <ul className="hidden lg:flex ml-14 space-x-12">
-                    {navItems.map((item, index) => 
-                        <li key={index}>
-                            <Link to={item.href}>{item.label}</Link>
-                        </li>
-                    )}
-                </ul>
-                <div className="hidden lg:flex justify-center space-x-12 items-center">
-                    <Link to="/signin" className="py-2 px-3 border rounded-md">
-                        Sign In
-                    </Link>
-                    <Link to="/register" className="bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md">
-                        Sign Up
-                    </Link>
-                </div>
-                <div className="lg:hidden md:flex flex-col justify-end">
-                    <button onClick={toggleNavbar}>
-                        {MobileDrawerOpen ? <X/> : <Menu/>}
-                    </button>
-                </div>
-            </div>
-            {MobileDrawerOpen && (
-                <div className="fixed right-0 z-20 bg-neutral-900 w-full p-12 flex flex-col justify-center items-center lg:hidden">
-                    <ul>
-                        {navItems.map((item, index) => (
-                            <li key={index} className="py-4">
-                                <Link to={item.href}>{item.label}</Link>
-                            </li>
-                            ))
-                        }
-                    </ul>
-                    <div className="flex space-x-6">
-                        <a href="#" className="py-2 px-3 border rounded-md">
-                            Sign In
-                        </a>
-                        <a href="#" className="py-2 px-3 border rounded-md bg-gradient-r from-blue-400 to-blue-800">
-                            Sign Up
-                        </a>
-                    </div>
-                </div>)}
+    <nav className="sticky top-0 z-50 py-3 bg-white/10 backdrop-blur-md border-b border-gray-700/50 shadow-lg">
+      <div className="container mx-auto px-6 flex justify-between items-center">
+        
+        {/* Logo */}
+        <div className="flex items-center">
+          <img className="h-10 w-auto mr-3" src={logo} alt="Slytex Logo" />
+          <span className="text-xl font-semibold text-white">Slytex Softwares</span>
         </div>
+
+        {/* Desktop Navigation */}
+        <ul className="hidden lg:flex space-x-8 text-white">
+          {navItems.map((item, index) => (
+            <li key={index}>
+              <Link to={item.href} className="hover:text-blue-400 transition duration-300">
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {/* Auth Buttons (Desktop) */}
+        <div className="hidden lg:flex space-x-4">
+          <Link to="/signin" className="py-2 px-4 border border-white rounded-lg text-white hover:bg-white hover:text-black transition">
+            Sign In
+          </Link>
+          <Link to="/register" className="py-2 px-4 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:opacity-90 transition">
+            Sign Up
+          </Link>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button className="lg:hidden text-white" onClick={toggleNavbar}>
+          {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation Menu */}
+      <div className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-md flex flex-col items-center justify-center transform ${mobileOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 lg:hidden z-50`}>
+        <button className="absolute top-5 right-6 text-white" onClick={toggleNavbar}>
+          <X size={32} />
+        </button>
+        
+        <ul className="space-y-6 text-center text-white text-lg">
+          {navItems.map((item, index) => (
+            <li key={index}>
+              <Link to={item.href} onClick={toggleNavbar} className="hover:text-blue-400 transition">
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-6 flex space-x-4">
+          <Link to="/signin" className="py-2 px-4 border border-white rounded-lg text-white hover:bg-white hover:text-black transition">
+            Sign In
+          </Link>
+          <Link to="/register" className="py-2 px-4 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:opacity-90 transition">
+            Sign Up
+          </Link>
+        </div>
+      </div>
     </nav>
-  )
+  );
 };
 
-export default NavBar
+export default NavBar;
