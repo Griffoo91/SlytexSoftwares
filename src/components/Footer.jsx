@@ -3,7 +3,7 @@ import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="relative mt-20 py-12 text-neutral-300">
+    <footer className="relative mt-20 py-12 text-neutral-300 bg-transparent">
       {/* Background Blur & Dark Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-lg rounded-xl"></div>
 

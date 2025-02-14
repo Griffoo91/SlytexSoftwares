@@ -4,7 +4,7 @@ const ServiceSection = () => {
       <div className="relative mt-20 border-b border-neutral-800 min-h-[800px]">
         {/* Background Blur & Dark Overlay */}
         <div className="absolute inset-0 bg-cover bg-center bg-fixed brightness-50 backdrop-blur-lg"
-             style={{ backgroundImage: "url('/bg2.jpg')" }}></div> 
+        ></div> 
   
         {/* Content Wrapper */}
         <div className="relative z-10 text-center px-6">

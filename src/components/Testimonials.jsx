@@ -4,8 +4,7 @@ const Testimonials = () => {
   return (
     <div className="relative mt-20 tracking-wide py-16">
       {/* Background Blur Effect */}
-      <div className="absolute inset-0 bg-black bg-cover bg-center bg-fixed brightness-50 backdrop-blur-lg rounded-xl" 
-        style={{ backgroundImage: "url('/bg2.jpg')" }} 
+      <div className="absolute inset-0 bg-cover bg-center bg-fixed brightness-50 backdrop-blur-lg rounded-xl" 
       />
 
       {/* Content Section */}

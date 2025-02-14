@@ -5,8 +5,7 @@ const HeroSection = () => {
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center justify-center text-white">
         {/* Background wrapper */}
-        <div className="absolute inset-0 bg-cover bg-black bg-opacity-60 backdrop-blur-lg bg-center bg-fixed backdrop-blur-lg brightness-50 rounded-xl"
-             style={{ backgroundImage: "url('/bg2.jpg')" }}>
+        <div className="absolute inset-0 bg-cover bg-opacity-60 backdrop-blur-lg bg-center bg-fixed backdrop-blur-lg brightness-50 rounded-xl">
         </div>
 
         {/* Content Wrapper (Ensures content is not affected by blur) */}

@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SlytexBg from "../assets/bg2.jpg";
 
 const SignIn = () => {
   return (
     <div
       className="relative bg-fixed flex items-center justify-center h-screen bg-cover bg-center"
-      style={{ backgroundImage: `url(${SlytexBg})` }}
     >
       {/*Dark Overlay for Visibility */}
       <div className="absolute inset-0 bg-opacity-50 backdrop-blur-lg"></div>
