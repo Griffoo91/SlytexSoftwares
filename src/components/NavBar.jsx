@@ -19,7 +19,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 py-3 bg-white/10 backdrop-blur-md border-b border-gray-700/50 shadow-lg w-full">
+    <nav className="fixed top-0 z-50 py-3 bg-white/10 backdrop-blur-md border-b border-gray-700/50 shadow-lg w-full">
       <div className="container mx-auto px-6 flex justify-between items-center">
         
         {/* Logo */}
