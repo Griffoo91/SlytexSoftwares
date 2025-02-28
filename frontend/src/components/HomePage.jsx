@@ -4,6 +4,7 @@ import Workflow from "./Workflow";
 import Pricing from "./Pricing";
 import Testimonials from "./Testimonials";
 import Footer from "./Footer";
+import Blog from "./Blog";
 
 
 function HomePage() {
@@ -14,6 +15,7 @@ function HomePage() {
       <div id="workflow"><Workflow /></div>
       <div id="pricing"><Pricing /></div>
       <div id="testimonials"><Testimonials /></div>
+      <div id="blog"><Blog /></div>
       <Footer />
     </div>
   );
