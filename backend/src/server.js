@@ -7,14 +7,11 @@ const app = express();
 
 // Middleware
 app.use(express.json()); // Allows JSON request bodies
-app.use(cors(
-  {
-    origin: ["http://localhost:5173", "https://slytexsoftwares.vercel.app"],// Allow only your frontend
-    methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: "Content-Type,Authorization",
-    credentials: true
-  }
-));
+app.use(cors({
+  origin: 'https://slytexsoftwares.vercel.app',
+  methods: ['POST', 'GET', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 // Connect to MongoDB
 connectDB();

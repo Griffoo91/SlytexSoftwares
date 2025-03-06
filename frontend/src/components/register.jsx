@@ -45,8 +45,9 @@ const SignUp = () => {
       };
 
       // Replace with your actual backend URL
-      const response = await fetch("https://slytex-softwares-api.vercel.app/api/auth/register", {
+      const response = await fetch("https://slytex-softwares-api.vercel.app/api/auth", {
         method: "POST",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json"
         },
