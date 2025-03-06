@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json()); // Allows JSON request bodies
 app.use(cors(
   {
-    origin: "http://localhost:5173", // Allow only your frontend
+    origin: ["http://localhost:5173", "https://slytexsoftwares.vercel,app"],// Allow only your frontend
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type,Authorization",
     credentials: true
