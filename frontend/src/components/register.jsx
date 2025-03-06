@@ -44,13 +44,13 @@ const SignUp = () => {
         password: formData.password
       };
 
-      // Replace with your actual backend URL
-      const response = await fetch("https://slytex-softwares-api.vercel.app/api/auth", {
+      // Updated endpoint to match your server configuration
+      const response = await fetch("https://slytex-softwares-api.vercel.app/auth/register", {
         method: "POST",
-        mode: "cors",
         headers: {
           "Content-Type": "application/json"
         },
+        credentials: "include", // Important for CORS
         body: JSON.stringify(registrationData)
       });
 
@@ -64,7 +64,7 @@ const SignUp = () => {
       alert("Registration successful! Please sign in.");
       navigate("/signin");
     } catch (err) {
-      setError(err.message);
+      setError(err.message || "Registration failed. Please try again.");
       console.error("Registration error:", err);
     } finally {
       setLoading(false);
