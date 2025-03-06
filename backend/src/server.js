@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json()); // Body parser
 app.use(cors(
   { 
-    origin: ['https://slytexsoftwares.vercel.app/'],
+    origin: ['https://slytexsoftwares.vercel.app'],
     methods: ["POST", "GET"],
     credentials: true
     }
