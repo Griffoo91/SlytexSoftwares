@@ -9,9 +9,12 @@ const app = express();
 app.use(express.json()); // Allows JSON request bodies
 app.use(cors({
   origin: 'https://slytexsoftwares.vercel.app',
-  methods: ['POST', 'GET', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  methods: ['POST', 'GET', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization','X-Requested-With'],
+  credentials: true
 }));
+
+app.options('*', cors()); 
 
 // Connect to MongoDB
 connectDB();
