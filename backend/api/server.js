@@ -19,9 +19,17 @@ app.options('*', cors());
 // Connect to MongoDB
 connectDB();
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    message: 'Slytex Software Solutions API is running',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // API Routes
 app.use("/api/auth", authRoutes); // This ensures the /api/auth/register route works
 
 // Start Server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+export default app;
