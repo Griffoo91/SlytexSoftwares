@@ -20,7 +20,7 @@ app.use(cors(
 connectDB();
 
 // API Routes
-app.use("/api/auth/register", authRoutes); // This ensures the /api/auth/register route works
+app.use("/api/auth", authRoutes); // This ensures the /api/auth/register route works
 
 // Start Server
 const PORT = process.env.PORT || 5000;
