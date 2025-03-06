@@ -27,12 +27,13 @@ const SignIn = () => {
     }
 
     try {
-      // Replace with your actual backend URL
-      const response = await fetch("https://slytexsoftwares.vercel.app/api/auth/login", {
+      // Updated backend URL to the correct API endpoint
+      const response = await fetch("https://slytex-softwares-api.vercel.app/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
+        credentials: "include", // Important for CORS with credentials
         body: JSON.stringify(formData)
       });
 
@@ -49,7 +50,7 @@ const SignIn = () => {
       // Redirect to home page after successful login
       navigate("/");
     } catch (err) {
-      setError(err.message);
+      setError(err.message || "Login failed. Please check your credentials.");
       console.error("Login error:", err);
     } finally {
       setLoading(false);
