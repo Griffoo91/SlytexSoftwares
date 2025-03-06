@@ -1,46 +1,27 @@
-import express from'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import {connectDB} from './config/db.js';
-import authRoutes from'./routes/authRoutes.js';
-
-// Load environment variables
-dotenv.config();
-
+import express from "express";
+import cors from "cors";
+import connectDB from "../config/db.js";
+import authRoutes from "../routes/authRoutes.js";
 
 const app = express();
 
 // Middleware
-app.use(express.json()); // Body parser
+app.use(express.json()); // Allows JSON request bodies
 app.use(cors(
-  { 
-    origin: ['https://slytexsoftwares.vercel.app'],
-    methods: ["POST", "GET"],
+  {
+    origin: "http://localhost:5173", // Allow only your frontend
+    methods: "GET,POST,PUT,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
     credentials: true
-    }
-  )
-  ); // Enable CORS
+  }
+));
 
-// Routes
-app.use('/api/auth', authRoutes);
+// Connect to MongoDB
+connectDB();
 
-// Default Route (for testing API)
-app.get('/', (req, res) => {
-  res.send('API is running...');
-});
-
-// Global Error Handler
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ message: 'Internal Server Error' });
-});
+// API Routes
+app.use("/api/auth", authRoutes); // This ensures the /api/auth/register route works
 
 // Start Server
-const PORT=process.env.PORT || 5000;
-connectDB()
-app.listen(
-  PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  
-  }
-);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
