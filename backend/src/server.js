@@ -12,7 +12,14 @@ const app = express();
 
 // Middleware
 app.use(express.json()); // Body parser
-app.use(cors({ origin: '*' })); // Enable CORS
+app.use(cors(
+  { 
+    origin: ['https://slytexsoftwares.vercel.app'],
+    methods: ["POST", "GET"],
+    credentials: true
+    }
+  )
+  ); // Enable CORS
 
 // Routes
 app.use('/api/auth', authRoutes);
