@@ -7,7 +7,7 @@ import reactImg from "../assets/reactImg.jpg";
 import ReduxImg from "../assets/ReduxImg.jpeg";
 import TSImg from "../assets/TypeScriptImg.webp";
 import CSSimg from "../assets/CSSimg.jpeg";
-import Webimg from "../assets/webdesignImg.jpeg";
+import Webimg from "../assets/WebdesignImg.jpeg";
 
 const Blog = () => {
   // State for blog posts and categories
