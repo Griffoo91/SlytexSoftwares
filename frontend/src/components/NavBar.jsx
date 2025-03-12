@@ -54,42 +54,39 @@ const NavBar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button 
+        {/* Mobile Menu Button (in your main navbar) */}
+<button 
   className="lg:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors focus:outline-none"
   onClick={toggleNavbar}
   aria-label="Toggle navigation menu"
   aria-expanded={mobileOpen}
 >
   {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+</button>
 
-        {/* Mobile Navigation Backdrop - only appears when menu is open */}
-        {mobileOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm lg:hidden z-40"
-          onClick={toggleNavbar}
-          aria-hidden="true"
-        />
-      )}
+{/* Mobile Navigation Backdrop - only appears when menu is open */}
+{mobileOpen && (
+  <div 
+    className="fixed inset-0 bg-black/50 backdrop-blur-sm lg:hidden z-40"
+    onClick={toggleNavbar}
+    aria-hidden="true"
+  />
+)}
 
-          {/* Mobile Side Navigation Menu */}
-        <div className={`
-  fixed top-0 bottom-0 right-0 w-80 max-w-[80vw]
+{/* Mobile Side Navigation Menu - positioned below navbar */}
+<div className={`
+  fixed top-16 bottom-0 right-0 w-80 max-w-[80vw]
   bg-gradient-to-b from-gray-900 to-black
   border-l border-white/10
   flex flex-col
   ${mobileOpen ? "translate-x-0 shadow-2xl" : "translate-x-full"}
   transition-all duration-300 ease-in-out
-  lg:hidden z-50 h-full overflow-hidden
+  lg:hidden z-50 overflow-hidden
 `}>
   <div className="flex flex-col h-full">
     {/* Mobile Menu Header */}
     <div className="flex justify-between items-center p-4 border-b border-white/10">
-      <Link to="/" className="flex items-center space-x-2" onClick={toggleNavbar}>
-        <img className="h-8 w-auto" src={logo} alt="Slytex Logo" />
-        <span className="text-lg font-semibold text-white truncate">Slytex</span>
-      </Link>
+      <span className="text-lg font-semibold text-white">Menu</span>
       <button 
         className="text-white p-1.5 hover:bg-white/10 rounded-full focus:outline-none"
         onClick={toggleNavbar}
@@ -99,26 +96,28 @@ const NavBar = () => {
       </button>
     </div>
 
-    {/* Mobile Menu Items */}
-    <nav className="flex-grow overflow-y-auto py-4 px-2">
-      <ul className="space-y-1">
-        {navItems.map((item, index) => (
-          <li key={index}>
-            <Link 
-              to={item.href} 
-              onClick={toggleNavbar}
-              className="flex items-center px-4 py-2.5 text-white hover:bg-white/10 rounded-lg transition-colors duration-200 text-sm font-medium"
-            >
-              {item.icon && <span className="mr-3">{item.icon}</span>}
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    {/* Mobile Menu Items - Scrollable */}
+    <div className="flex-grow overflow-y-auto">
+      <nav className="py-4 px-2">
+        <ul className="space-y-1">
+          {navItems.map((item, index) => (
+            <li key={index}>
+              <Link 
+                to={item.href} 
+                onClick={toggleNavbar}
+                className="flex items-center px-4 py-2.5 text-white hover:bg-white/10 rounded-lg transition-colors duration-200 text-sm font-medium"
+              >
+                {item.icon && <span className="mr-3">{item.icon}</span>}
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
 
-    {/* Mobile Auth Buttons */}
-    <div className="p-4 space-y-2 border-t border-white/10 mt-auto">
+    {/* Mobile Auth Buttons - Fixed */}
+    <div className="p-4 space-y-2 border-t border-white/10 bg-gray-900/80 backdrop-blur-sm">
       <Link 
         to="/signin" 
         onClick={toggleNavbar}
@@ -135,7 +134,7 @@ const NavBar = () => {
       </Link>
     </div>
   </div>
-        </div>
+</div>
       </div>
     </nav>
   );
