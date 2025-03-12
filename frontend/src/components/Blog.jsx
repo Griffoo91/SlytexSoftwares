@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { SearchIcon, Calendar, User, Clock } from "lucide-react";
+import nextjsImg from "../assets/Nextjsimage.png";
+import restfulImg from "../assets/restfulapi.jpg";
+import JSimg from "../assets/jsImg.png";
+import reactImg from "../assets/reactImg.jpg";
+import ReduxImg from "../assets/ReduxImg.jpeg";
+import TSImg from "../assets/TypeScriptImg.webp";
+import CSSimg from "../assets/CSSimg.jpeg";
+import Webimg from "../assets/webdesignImg.jpeg";
 
 const Blog = () => {
   // State for blog posts and categories
@@ -10,9 +18,9 @@ const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
 
-  // Simulated data - replace with actual API calls
+  // Simulated data
   useEffect(() => {
-    // Mock data for demonstration - replace with your API fetch logic
+    // Mock data for demonstration
     const fetchData = async () => {
       // Simulate API response delay
       await new Promise(resolve => setTimeout(resolve, 500));
@@ -25,7 +33,7 @@ const Blog = () => {
           category: 'React',
           date: 'February 25, 2025',
           author: 'Geoffrey Ochieng',
-          image: '/api/placeholder/800/500',
+          image: reactImg,
           readTime: '5 min read'
         },
         {
@@ -35,7 +43,7 @@ const Blog = () => {
           category: 'CSS',
           date: 'February 20, 2025',
           author: 'John Okello',
-          image: '/api/placeholder/800/500',
+          image: CSSimg,
           readTime: '8 min read'
         },
         {
@@ -45,7 +53,7 @@ const Blog = () => {
           category: 'JavaScript',
           date: 'February 15, 2025',
           author: 'Alex Otieno',
-          image: '/api/placeholder/800/500',
+          image: JSimg,
           readTime: '6 min read'
         },
         {
@@ -55,7 +63,7 @@ const Blog = () => {
           category: 'Backend',
           date: 'February 10, 2025',
           author: 'Sarah Nyaboke',
-          image: '/api/placeholder/800/500',
+          image: restfulImg,
           readTime: '10 min read'
         },
         {
@@ -65,7 +73,7 @@ const Blog = () => {
           category: 'React',
           date: 'February 5, 2025',
           author: 'Mike Ali',
-          image: '/api/placeholder/800/500',
+          image: nextjsImg,
           readTime: '7 min read'
         },
         {
@@ -75,7 +83,7 @@ const Blog = () => {
           category: 'React',
           date: 'January 30, 2025',
           author: 'Elizabeth Nyabura',
-          image: '/api/placeholder/800/500',
+          image: ReduxImg,
           readTime: '9 min read'
         },
         {
@@ -85,7 +93,7 @@ const Blog = () => {
           category: 'JavaScript',
           date: 'January 25, 2025',
           author: 'Tom Kamau',
-          image: '/api/placeholder/800/500',
+          image: TSImg,
           readTime: '8 min read'
         },
         {
@@ -95,7 +103,7 @@ const Blog = () => {
           category: 'CSS',
           date: 'January 20, 2025',
           author: 'Emmaculate Njambi',
-          image: '/api/placeholder/800/500',
+          image: Webimg,
           readTime: '6 min read'
         }
       ];

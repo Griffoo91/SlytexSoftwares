@@ -56,7 +56,7 @@ const FooterColumn = ({ title, links }) => (
 
 // Social Media Icon Component
 const SocialIcon = ({ Icon }) => (
-  <a href="#" className="p-2 rounded-full bg-neutral-800 hover:bg-blue-600 transition">
+  <a href="https://x.com/slytexsoftwares" className="p-2 rounded-full bg-neutral-800 hover:bg-blue-600 transition">
     <Icon size={20} className="text-white" />
   </a>
 );
