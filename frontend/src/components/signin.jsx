@@ -28,7 +28,7 @@ const SignIn = () => {
 
     try {
       // Updated backend URL to the correct API endpoint
-      const response = await fetch("https://slytex-softwares-api.vercel.app/api/auth/login", {
+      const response = await fetch("https://slytex-softwares-api.vercel.app/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
