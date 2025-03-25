@@ -1,16 +1,31 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-const MONGO_URI = "mongodb+srv://omboggorised91:admin1234@cluster0.yd0sm.mongodb.net/SlyTexSoftwares?retryWrites=true&w=majority&appName=Cluster0";
+dotenv.config();
+
+const MONGO_URI = process.env.MONGO_URI;
+
+if (!MONGO_URI) {
+  console.error("❌ MONGO_URI is not defined in environment variables");
+  process.exit(1);
+}
 
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(MONGO_URI, {
-      serverSelectionTimeoutMS: 5000, // Timeout for server selection
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000,
     });
+    
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+    return conn;
   } catch (error) {
     console.error(`❌ MongoDB Connection Error: ${error.message}`);
-    process.exit(1);
+    console.error('Full Error:', error);
+    
+    // Throw the error to be caught by the caller
+    throw error;
   }
 };
 

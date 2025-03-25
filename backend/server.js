@@ -2,75 +2,68 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
 
 const app = express();
 
 // Basic middleware
-app.use(express.json()); // Allows JSON request bodies
+app.use(express.json());
 
-// Enhanced CORS configuration
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://slytexsoftwares.vercel.app");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  
-  // Handle preflight requests explicitly
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
-  }
-  
-  next();
-});
-
-// Then apply the standard cors middleware as a backup
+// CORS configuration
 app.use(cors({
-  origin: "https://slytexsoftwares.vercel.app",
+  origin: process.env.FRONTEND_URL || "https://slytexsoftwares.vercel.app",
   methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   credentials: true
 }));
 
 // Connect to MongoDB
-connectDB();
+try {
+  connectDB();
+} catch (error) {
+  console.error("MongoDB Connection Error:", error);
+}
 
 // Health check route
 app.get('/', (req, res) => {
   res.status(200).json({
     status: 'success',
-    message: 'Slytex Software Solutions API is running',
+    message: 'API is running',
     timestamp: new Date().toISOString()
   });
 });
 
-// Test route - add this to verify the API is working
-app.get('/test', (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    message: 'API test endpoint is working',
-    timestamp: new Date().toISOString()
-  });
-});
+// Routes
+app.use("/auth", authRoutes);
 
-// API Routes - Make sure these are mounted correctly
-app.use("/auth", authRoutes); // Changed from "/api/auth" to just "/auth"
-
-// Error handling middleware
+// Comprehensive error handling middleware
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({
+  console.error('Unhandled Error:', err);
+  
+  // Log full error details in development
+  const errorResponse = {
     status: 'error',
     message: 'Internal Server Error',
-    error: process.env.NODE_ENV === 'development' ? err.message : undefined
-  });
+    ...(process.env.NODE_ENV === 'development' && { 
+      errorDetails: {
+        message: err.message,
+        stack: err.stack
+      }
+    })
+  };
+
+  res.status(500).json(errorResponse);
 });
 
-// Start Server for local development
-if (process.env.NODE_ENV !== 'production') {
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+// Catch-all for unhandled routes
+app.use((req, res) => {
+  res.status(404).json({
+    status: 'error',
+    message: 'Route not found'
   });
-}
+});
 
 export default app;
