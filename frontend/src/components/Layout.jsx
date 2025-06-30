@@ -1,10 +1,23 @@
 import React from "react";
 
+
 const Layout = ({ children }) => {
   return (
+    <div className="relative min-h-screen w-full flex flex-col overflow-hidden ">
+      {/* Background image */}
+      <div
+        className="fixed top-0 left-0 w-full h-full bg-no-repeat bg-top bg-auto bg-fixed fade-in transition-all duration-1000 z-0"
+        style={{
+          backgroundImage: "url('/backgroundcofee.webp')", // Replace with your image
+        }}
+        aria-hidden="true"
+      />
 
-    <div className="min-h-screen w-full max-w-full bg-cover bg-center bg-no-repeat bg-fixed flex flex-col overflow-hidden bg-[url('/bg2.webp')]">
-            <div className="flex-1">{children}</div>
+
+      {/* Content */}
+      <div className="relative z-10 flex-1">
+        {children}
+      </div>
     </div>
   );
 };
