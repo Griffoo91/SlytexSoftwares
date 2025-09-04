@@ -5,9 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    
+    "analyze": "npm run build && npx webpack-bundle-analyzer build/static/js/*.js",
+    "lighthouse": "lighthouse https://slytexsoftwares.vercel.app --output html --output-path ./lighthouse-report.html",
+    "optimize-images": "imagemin src/images/* --out-dir=public/images --plugin=imagemin-webp --plugin=imagemin-mozjpeg"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.5",

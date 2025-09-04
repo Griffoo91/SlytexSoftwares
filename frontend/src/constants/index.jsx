@@ -5,7 +5,7 @@ import { ShieldHalf } from "lucide-react";
 import { PlugZap } from "lucide-react";
 import { GlobeLock } from "lucide-react";
 
-import user1 from "../assets/profile-pictures/user1.jpg";
+import user1 from "../assets/profile-pictures/user1.webp";
 import user2 from "../assets/profile-pictures/user2.png";
 import user3 from "../assets/profile-pictures/user2.png";
 import user4 from "../assets/profile-pictures/user2.png";
