@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
       <div
         className="fixed top-0 left-0 w-full h-full bg-no-repeat bg-top bg-auto bg-fixed fade-in transition-all duration-1000 z-0"
         style={{
-          backgroundImage: "url('/backgroundcofee.webp')", // Replace with your image
+          backgroundImage: "url('/backgroundcofee.webp')", 
         }}
         aria-hidden="true"
       />
